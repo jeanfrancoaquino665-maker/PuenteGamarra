@@ -1,8 +1,11 @@
 'use strict';
-// Versión inicial (Sprint 0): servidor mínimo para validar el despliegue en la nube.
-const express = require('express');
+const { crearApp } = require('./app');
 
-const app = express();
-app.get('/api/salud', (req, res) => res.json({ estado: 'ok', servicio: 'puente-gamarra' }));
-app.get('/', (req, res) => res.send('Puente Gamarra: en construcción'));
-app.listen(process.env.PORT || 3000);
+const PUERTO = process.env.PORT || 3000;
+
+crearApp()
+  .then((app) => app.listen(PUERTO, () => console.log(`Puente Gamarra escuchando en el puerto ${PUERTO}`)))
+  .catch((e) => {
+    console.error('No se pudo iniciar la aplicación:', e.message);
+    process.exit(1);
+  });
