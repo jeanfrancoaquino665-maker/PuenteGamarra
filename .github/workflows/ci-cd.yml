@@ -43,7 +43,7 @@ jobs:
           node -e "const c=require('./coverage/coverage-summary.json').total;const l=['## Resultados de las pruebas','','| Métrica | Cobertura |','|---|---|'];for(const k of ['lines','statements','functions','branches'])l.push('| '+k+' | '+c[k].pct+' % |');console.log(l.join('\n'))" >> "$GITHUB_STEP_SUMMARY"
       - name: Guardar reporte de cobertura
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: reporte-cobertura
           path: coverage/
