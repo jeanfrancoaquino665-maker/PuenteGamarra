@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puente Gamarra</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1>Puente Gamarra</h1>
+    <p>Formaliza tu negocio paso a paso y gana visibilidad ante más compradores.</p>
+    <nav>
+      <button data-vista="buscar" class="activo">Buscar negocios</button>
+      <button data-vista="registro" class="solo-anonimo">Registrarme</button>
+      <button data-vista="ingresar" class="solo-anonimo">Ingresar</button>
+      <button data-vista="mi-negocio" class="solo-sesion oculto">Mi negocio</button>
+      <button id="salir" class="solo-sesion oculto">Salir</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="vista-buscar" class="vista">
+      <form id="form-buscar" class="fila">
+        <input id="q" type="search" placeholder="Busca por nombre, rubro o galería (ej. jeans)" aria-label="Buscar negocios">
+        <button type="submit">Buscar</button>
+      </form>
+      <div id="resultados" class="tarjetas"></div>
+    </section>
+
+    <section id="vista-registro" class="vista oculto">
+      <h2>Crea tu cuenta de comerciante</h2>
+      <form id="form-registro">
+        <label>DNI <input name="dni" inputmode="numeric" maxlength="8" required></label>
+        <label>Celular <input name="celular" inputmode="numeric" maxlength="9" required></label>
+        <label>Contraseña <input name="password" type="password" minlength="8" required></label>
+        <label class="check"><input name="aceptaPrivacidad" type="checkbox"> Acepto la <a href="#privacidad" id="ver-privacidad">política de privacidad</a> (Ley N.° 29733)</label>
+        <div id="privacidad" class="aviso oculto">Usamos tu DNI y tu celular solo para identificarte en la plataforma. Nunca los mostramos en la vitrina pública y puedes pedir que eliminemos tus datos cuando quieras.</div>
+        <button type="submit">Registrarme</button>
+      </form>
+    </section>
+
+    <section id="vista-ingresar" class="vista oculto">
+      <h2>Ingresa a tu cuenta</h2>
+      <form id="form-ingresar">
+        <label>DNI <input name="dni" inputmode="numeric" maxlength="8" required></label>
+        <label>Contraseña <input name="password" type="password" required></label>
+        <button type="submit">Ingresar</button>
+      </form>
+    </section>
+
+    <section id="vista-mi-negocio" class="vista oculto">
+      <div id="sin-negocio" class="oculto">
+        <h2>Registra tu negocio</h2>
+        <form id="form-negocio">
+          <label>Nombre comercial <input name="nombre" maxlength="80" required></label>
+          <label>Rubro <select name="rubro" id="rubros" required></select></label>
+          <fieldset>
+            <legend>Tipo de negocio</legend>
+            <label class="check"><input type="radio" name="tipo" value="galeria" checked> Galería</label>
+            <label class="check"><input type="radio" name="tipo" value="ambulante"> Ambulante</label>
+          </fieldset>
+          <div id="campos-galeria">
+            <label>Galería <input name="galeria" maxlength="80"></label>
+            <label>N.° de puesto <input name="puesto" maxlength="20"></label>
+          </div>
+          <div id="campos-ambulante" class="oculto">
+            <label>Calle o zona donde vendes <input name="zona" maxlength="120"></label>
+          </div>
+          <button type="submit">Guardar negocio</button>
+        </form>
+      </div>
+
+      <div id="con-negocio" class="oculto">
+        <div id="ficha"></div>
+        <h3>1. Diagnóstico de formalidad</h3>
+        <form id="form-diagnostico">
+          <label class="check"><input type="checkbox" name="tieneRuc"> Tengo RUC</label>
+          <label class="check"><input type="checkbox" name="emiteComprobantes"> Emito boletas o facturas</label>
+          <label class="check"><input type="checkbox" name="tieneLicencia"> Tengo licencia de funcionamiento</label>
+          <label class="check"><input type="checkbox" name="tieneTrabajadores"> Tengo trabajadores</label>
+          <label class="check"><input type="checkbox" name="trabajadoresEnPlanilla"> Mis trabajadores están en planilla</label>
+          <label>Ventas aproximadas al mes (S/) <input name="ventasMensuales" type="number" min="0" step="100" value="0"></label>
+          <button type="submit">Ver mi ruta</button>
+        </form>
+        <div id="ruta"></div>
+        <h3>2. Valida tu RUC y obtén la insignia</h3>
+        <form id="form-ruc" class="fila">
+          <input name="ruc" inputmode="numeric" maxlength="11" placeholder="RUC de 11 dígitos" required>
+          <button type="submit">Validar RUC</button>
+        </form>
+      </div>
+    </section>
+
+    <p id="mensaje" role="status" class="mensaje oculto"></p>
+  </main>
+
+  <footer>Puente Gamarra · MVP (Release 1.0) · Proyecto académico</footer>
+  <script src="app.js"></script>
+</body>
+</html>

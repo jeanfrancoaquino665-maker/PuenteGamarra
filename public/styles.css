@@ -1,0 +1,37 @@
+:root { --azul: #1f2a6b; --verde: #2e9e6a; --gris: #5f6673; --fondo: #f5f6fa; --borde: #c9ced6; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fondo); color: #1d1f24; }
+.cabecera { background: var(--azul); color: #fff; padding: 16px; }
+.cabecera h1 { margin: 0 0 4px; font-size: 1.5rem; }
+.cabecera p { margin: 0 0 12px; opacity: .9; }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+nav button { background: transparent; border: 1px solid rgba(255, 255, 255, .6); }
+nav button.activo { background: #fff; color: var(--azul); }
+main { max-width: 760px; margin: 0 auto; padding: 16px; }
+button { background: var(--azul); color: #fff; border: 0; border-radius: 8px; padding: 10px 14px; font-size: 1rem; cursor: pointer; }
+input, select { width: 100%; padding: 10px; border: 1px solid var(--borde); border-radius: 8px; font-size: 1rem; margin-top: 4px; }
+label { display: block; margin: 10px 0; }
+label.check { display: flex; gap: 8px; align-items: center; }
+label.check input { width: auto; margin: 0; }
+fieldset { border: 1px solid var(--borde); border-radius: 8px; }
+.fila { display: flex; gap: 8px; }
+.fila input { margin: 0; }
+.tarjetas { display: grid; gap: 12px; margin-top: 16px; }
+.tarjeta { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
+.tarjeta h3 { margin: 0 0 6px; }
+.tarjeta p { margin: 4px 0; }
+.insignia { display: inline-block; color: var(--verde); font-weight: 700; }
+.tenue { color: var(--gris); }
+.aviso { background: #eef1f7; padding: 10px; border-radius: 8px; font-size: .9rem; }
+.mensaje { position: fixed; left: 16px; right: 16px; bottom: 16px; padding: 12px; border-radius: 8px; color: #fff; background: var(--verde); }
+.mensaje.error { background: #c0392b; }
+.nivel { font-weight: 700; }
+.barra { background: #dde1ea; border-radius: 99px; height: 10px; overflow: hidden; }
+.lleno { background: var(--verde); height: 100%; }
+.pasos { padding-left: 20px; }
+.pasos li { background: #fff; margin: 8px 0; padding: 10px; border-radius: 8px; border-left: 4px solid var(--borde); }
+.pasos li.cumplido { border-color: var(--verde); }
+.pasos li.siguiente { border-color: #e08a1e; }
+.pasos p { margin: 4px 0; }
+.oculto { display: none !important; }
+footer { text-align: center; color: var(--gris); font-size: .85rem; padding: 24px 16px 80px; }
